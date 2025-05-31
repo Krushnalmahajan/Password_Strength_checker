@@ -1,0 +1,141 @@
+# Password Strength Checker
+
+## Project Overview
+This is a desktop application built with Python and Tkinter that helps users evaluate the strength of their passwords. Password security is critical in protecting personal and professional information from unauthorized access. This tool checks if a password meets important security criteria such as length, use of uppercase letters, lowercase letters, digits, and special characters.
+
+In addition, the app can generate strong random passwords, copy passwords to the clipboard, and give real-time suggestions on how to improve weak passwords. The user-friendly interface makes it accessible even for beginners.
+
+## Why This Project?
+Cybersecurity relies heavily on good password hygiene. Weak passwords are one of the easiest entry points for hackers. This project demonstrates important concepts like:
+
+- Regular expressions for pattern matching  
+- GUI programming with Tkinter  
+- Random data generation for password creation  
+- Clipboard interaction with pyperclip  
+- Basic user interface design and feedback  
+
+## Libraries Used and Why
+
+| Library    | Purpose                          | Why Used                                             |
+|------------|---------------------------------|-----------------------------------------------------|
+| `tkinter`  | Create graphical user interface  | Built-in Python library, simple for windows, buttons, text input, etc. |
+| `re`       | Regular expressions for matching | To check if passwords have uppercase, digits, special characters easily |
+| `random`   | Random number and character generation | To generate strong random passwords mixing letters, digits, and symbols |
+| `pyperclip`| Access system clipboard          | Allows copying passwords directly to clipboard for easy pasting |
+| `string`   | Common string constants like ascii letters | Provides easy access to letters, digits, punctuation for password generation |
+
+## How to Run
+
+### Prerequisites
+- Python 3.x installed (download from [python.org](https://python.org))  
+- `pyperclip` Python package installed (for clipboard operations)
+
+Install pyperclip via command line:
+
+```bash
+pip install pyperclip
+
+
+## Running the App
+1.Clone or download the project files to your computer.
+
+2.Open terminal/command prompt in the project folder.
+
+3.Run the app with: python main.py
+
+4.The GUI window will open.
+
+5.Enter a password and click Check Strength to see feedback.
+
+6.Use Generate Password to get a strong password.
+
+7.Click Copy to Clipboard to copy the current password.
+
+8.Click About Me for developer info.
+
+
+
+
+Detailed File Descriptions
+main.py
+
+This is the starting point of the program.
+
+It imports the main GUI creation function from gui.py and runs the Tkinter mainloop.
+
+Keeps your project organized by separating startup logic from UI and utility code.
+
+gui.py
+
+Contains the entire user interface code: window, labels, buttons, input fields, and progress bar.
+
+Connects UI elements to functions from password_utils.py (like checking password strength).
+
+Manages user interactions, e.g., button clicks and checkbox toggles.
+
+Calls about_me.py for the “About Me” popup.
+
+Keeps UI code clean and modular.
+
+password_utils.py
+
+Implements core logic functions for password handling.
+
+check_password_strength(password): Uses regular expressions to test password against rules and returns strength level and suggestions.
+
+generate_password(length=12): Creates a secure password randomly using letters, numbers, and symbols.
+
+copy_password(text): Copies given text to the system clipboard via pyperclip.
+
+This separation keeps logic independent from the UI.
+
+about_me.py
+
+Contains the function to show About Me popup using Tkinter’s messagebox.
+
+Helps provide project credit and developer info without cluttering main UI code.
+
+styles.py
+
+Holds all styling variables and functions for colors, fonts, and widget styles.
+
+Allows easy changes to the app’s look and feel.
+
+Prepares for future additions like dark mode or themes.
+
+How Does Password Strength Work?
+The password is evaluated on five key rules:
+
+Rule	Description
+Minimum Length	Password must be at least 6 characters long
+Uppercase Letters	Contains at least one uppercase letter
+Lowercase Letters	Contains at least one lowercase letter
+Numbers	Contains at least one digit (0-9)
+Special Characters	Contains at least one symbol like !@#$%
+
+Each satisfied rule adds to the total strength score (max 5). This score maps to labels like “Very Weak” to “Very Strong.” If a rule is missing, a suggestion is shown to guide the user.
+
+Interview Questions & Answers
+Q1: Why is password strength important in cybersecurity?
+A: Weak passwords are vulnerable to attacks such as brute force, dictionary attacks, or guessing. Strong passwords reduce the chance of unauthorized access.
+
+Q2: How does your application check password strength?
+A: The app uses regular expressions to test the presence of uppercase, lowercase, digits, special characters, and length. The number of passed rules determines the strength.
+
+Q3: What are regular expressions and why are they used here?
+A: Regular expressions (regex) are patterns used to match text. They efficiently check if passwords contain required character types.
+
+Q4: How is the random password generated?
+A: Using Python’s random.choice() over a pool of characters (letters, digits, symbols), repeated to a desired length.
+
+Q5: What challenges did you face while building the app?
+A: Ensuring real-time feedback, managing clipboard operations across platforms, and designing a clean UI with Tkinter.
+
+Q6: Why separate logic and UI code into different files?
+A: Separation improves code readability, maintainability, and allows reusing logic independently of the interface.
+
+Q7: How can this app be improved?
+A: Adding a password database to check against leaked passwords, supporting international characters, or integrating with web browsers/extensions.
+
+
+
